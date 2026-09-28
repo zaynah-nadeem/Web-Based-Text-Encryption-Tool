@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureText - Encryption Tool</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="lock">🔐</div>
+
+            <h1>SecureText</h1>
+
+            <p>Web-Based Text Encryption Tool</p>
+        </header>
+
+
+        <main class="card">
+
+
+            <div class="top-row">
+
+                <div class="field">
+
+                    <label for="algorithm">
+                        Encryption Method
+                    </label>
+
+                    <select id="algorithm">
+
+                        <option value="">
+                            -- Select a method --
+                        </option>
+
+                        <option value="caesar">
+                            Caesar Cipher
+                        </option>
+
+                        <option value="vigenere">
+                            Vigenère Cipher
+                        </option>
+
+                        <option value="vernam">
+                            Vernam Cipher
+                        </option>
+
+                        <option value="railfence">
+                            Rail Fence Cipher
+                        </option>
+
+                        <option value="columnar">
+                            Columnar Transposition
+                        </option>
+
+                        <option value="aes">
+                            AES
+                        </option>
+
+                        <option value="rsa">
+                            RSA
+                        </option>
+
+                        <option value="sha256">
+                            SHA-256 Hash
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="action">
+                        Operation
+                    </label>
+
+                    <select id="action">
+
+                        <option value="encrypt">
+                            Encrypt
+                        </option>
+
+                        <option value="decrypt">
+                            Decrypt
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <p id="description" class="description">
+
+                Select an encryption method to see how it works.
+
+            </p>
+
+
+            <div class="field">
+
+                <label for="inputText">
+                    Input Text
+                </label>
+
+                <textarea
+                    id="inputText"
+                    placeholder="Enter your text here..."
+                ></textarea>
+
+            </div>
+
+            <div id="keyArea" class="key-grid">
+
+                <div class="field hidden" id="keyField">
+
+                    <label id="keyLabel" for="key">
+                        Key
+                    </label>
+
+                    <input
+                        id="key"
+                        type="text"
+                        placeholder="Enter key"
+                    >
+
+                </div>
+
+
+                <div class="field hidden" id="shiftField">
+
+                    <label for="shift">
+                        Shift
+                    </label>
+
+                    <input
+                        id="shift"
+                        type="number"
+                        value="3"
+                        min="0"
+                        max="25"
+                    >
+
+                </div>
+
+
+                <div class="field hidden" id="railsField">
+
+                    <label for="rails">
+                        Number of Rails
+                    </label>
+
+                    <input
+                        id="rails"
+                        type="number"
+                        value="3"
+                        min="2"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <button id="processBtn" class="primary">
+                    Encrypt
+                </button>
+
+                <button id="copyBtn" class="secondary">
+                    Copy Result
+                </button>
+
+                <button id="clearBtn" class="danger">
+                    Clear
+                </button>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="outputText">
+                    Result
+                </label>
+
+                <textarea
+                    id="outputText"
+                    readonly
+                    placeholder="Your ciphertext  will appear here..."
+                ></textarea>
+
+            </div>
+
+
+            <div id="status" class="status"></div>
+
+        </main>
+
+
+
+
+        <section class="info">
+
+            <h2>Supported Methods</h2>
+
+            <div class="method-grid">
+
+                <div>
+                    <b>Caesar</b>
+                    <span>
+                        Shifts letters by a fixed amount.
+                    </span>
+                </div>
+
+                <div>
+                    <b>Vigenère</b>
+                    <span>
+                        Uses a repeating keyword to shift letters.
+                    </span>
+                </div>
+
+                <div>
+                    <b>Vernam</b>
+                    <span>
+                        Uses a key for character-by-character XOR.
+                    </span>
+                </div>
+
+                <div>
+                    <b>Rail Fence</b>
+                    <span>
+                        Rearranges text using a zigzag pattern.
+                    </span>
+                </div>
+
+                <div>
+                    <b>Columnar Transposition</b>
+                    <span>
+                        Rearranges text using keyed columns.
+                    </span>
+                </div>
+
+                <div>
+                    <b>AES</b>
+                    <span>
+                        Modern symmetric encryption using Web Crypto.
+                    </span>
+                </div>
+
+                <div>
+                    <b>RSA</b>
+                    <span>
+                        Asymmetric encryption using a public/private key pair.
+                    </span>
+                </div>
+
+                <div>
+                    <b>SHA-256</b>
+                    <span>
+                        One-way cryptographic hashing.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            Web-Based Text Encryption Tool • Cryptography Project
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
